@@ -14,9 +14,12 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            'asset/images/loginpageimage.jpg',
-            height: 500,
+          SizedBox(
+            height: 400,
+            child: Image.asset(
+              'asset/images/loginpageimage.jpg',
+              fit: BoxFit.fill,
+            ),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -37,17 +40,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              Icon(Icons.person),
-                              SizedBox(
+                              const Icon(Icons.person),
+                              const SizedBox(
                                 width: 20,
                               ),
-                              Container(
+                              SizedBox(
                                 width: 300,
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor:
-                                        Color.fromARGB(255, 212, 212, 212),
+                                    fillColor: const Color.fromARGB(
+                                        255, 212, 212, 212),
                                     border: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(20.0),
@@ -59,24 +62,24 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              Icon(Icons.key),
-                              SizedBox(
+                              const Icon(Icons.key),
+                              const SizedBox(
                                 width: 20,
                               ),
-                              Container(
+                              SizedBox(
                                 width: 300,
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor:
-                                        Color.fromARGB(255, 212, 212, 212),
+                                    fillColor: const Color.fromARGB(
+                                        255, 212, 212, 212),
                                     border: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(20.0),
@@ -93,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 100,
                     ),
-                    Container(
+                    SizedBox(
                       width: 280,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -102,10 +105,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(
-                              builder: (context) => BottomNavBar(),
+                              builder: (context) => const BottomNavBar(),
                             ));
                           },
-                          child: Text('Login')),
+                          child: const Text('Login')),
                     )
                   ],
                 ),
