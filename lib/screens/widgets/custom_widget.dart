@@ -7,115 +7,266 @@ class CustomWidget extends StatelessWidget {
       required this.image,
       required this.description,
       required this.price,
+      required this.name,
       required this.navigation});
 
   String image;
   String description;
   String price;
+  String name;
   VoidCallback navigation;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Stack(
+    return Scaffold(
+      body: Column(
         children: [
-          SizedBox(
-            height: 500,
-            child: Image.asset(
-              image,
-              fit: BoxFit.fill,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(40, 90, 30, 0),
+            child: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: Offset(0, 5),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30)),
+                        height: 350,
+                        width: 355,
+                        child: Image.asset(
+                          image,
+                          fit: BoxFit.fill,
+                        )),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 15, 0, 0),
+                  child: Container(
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop(MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ));
+                        },
+                        icon: Icon(Icons.arrow_back_ios)),
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color.fromARGB(117, 255, 255, 255)),
+                  ),
+                ),
+                Positioned(
+                  top: 240,
+                  left: 60,
+                  child: Container(
+                    width: 200,
+                    height: 80,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(107, 255, 255, 255),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(name),
+                            SizedBox(
+                              width: 50,
+                            ),
+                            Text(price)
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.location_on_sharp),
+                            Text('Kozhikode')
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(10, 70, 0, 0),
-            child: Container(
-              height: 45,
-              width: 45,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: const Color.fromARGB(119, 255, 255, 255),
-              ),
-              child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(MaterialPageRoute(
-                      builder: (context) => const HomeScreen(),
-                    ));
-                  },
-                  icon: const Icon(Icons.arrow_back_ios_new_rounded)),
+            padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Facilities",
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                )
+              ],
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-                  color: Colors.white,
-                ),
-                height: 400,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+            child: Row(
+              children: [
+                Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("About Us",
-                              style: TextStyle(
-                                  fontSize: 30, fontWeight: FontWeight.bold)),
-                          Text(
-                            description,
-                            style: const TextStyle(fontSize: 17),
-                          ),
-                        ],
-                      ),
-                    ),
                     Container(
+                      child: Icon(Icons.bed,
+                          size: 30, color: Color.fromARGB(255, 128, 98, 248)),
+                      height: 60,
+                      width: 60,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
-                            spreadRadius: 5,
-                            blurRadius: 5,
-                            offset: const Offset(10, 3),
-                          ),
-                        ],
-                      ),
-                      width: 400,
-                      height: 80,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                            child: Text('Price estimate'),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                child: Text(price),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(0, 0, 10, 10),
-                                child: ElevatedButton(
-                                    onPressed: navigation,
-                                    child: const Text('Reserve')),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
+                          color: Color.fromARGB(255, 215, 215, 215),
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      '2 Bed',
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
-              ),
-            ],
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      child: Icon(Icons.dining_rounded,
+                          size: 30, color: Color.fromARGB(255, 128, 98, 248)),
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 215, 215, 215),
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Break Fast',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      child: Icon(Icons.severe_cold_rounded,
+                          size: 30, color: Color.fromARGB(255, 128, 98, 248)),
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 215, 215, 215),
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'A/C',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      child: Icon(Icons.pool,
+                          size: 30, color: Color.fromARGB(255, 128, 98, 248)),
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 215, 215, 215),
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Pool",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Property Description",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+            child: Text(description),
+          ),
+          SizedBox(
+            height: 18,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  spreadRadius: 5,
+                  blurRadius: 5,
+                  offset: const Offset(10, 3),
+                ),
+              ],
+            ),
+            width: 400,
+            height: 80,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  child: Text('Price estimate'),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                      child: Text(price),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 10),
+                      child: ElevatedButton(
+                          onPressed: navigation, child: const Text('Reserve')),
+                    )
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),

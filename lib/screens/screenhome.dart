@@ -6,15 +6,11 @@ import 'package:resto/screens/subscreens/hotel_prestige.dart';
 import 'package:resto/screens/subscreens/hotel_tropical_details.dart';
 import 'package:resto/screens/subscreens/hotel_raviz_details.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   final images = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,127 +28,137 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Container(
               decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 228, 227, 227),
                   borderRadius: BorderRadiusDirectional.vertical(
                       top: Radius.circular(30))),
               height: 500,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
-                    child: Container(
-                        alignment: Alignment.topLeft,
-                        child: const Text(
-                          'Villas for You',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        )),
-                  ),
-                  const SizedBox(
-                    height: 120,
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+                      child: Container(
+                          alignment: Alignment.topLeft,
+                          child: const Text(
+                            'Villas for You',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          )),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const RavizDetails()));
-                            },
-                            child: resortList(
-                                image1: 'asset/images/villa1.jpg',
-                                text1: 'The Raviz',
-                                text2: 'sadsad',
-                                text3: 'dsada'),
-                          ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const RavizDetails()));
+                                },
+                                child: resortList(
+                                    image1: 'asset/images/villa1.jpg',
+                                    text1: 'The Raviz',
+                                    text2: 'sadsad',
+                                    text3: 'dsada'),
+                              ),
+                            ),
+                            const SizedBox(width: 20),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const HotelPrestigeDetails()));
+                                },
+                                child: resortList(
+                                    image1: 'asset/images/villa2.jpg',
+                                    text1: 'The Prestige',
+                                    text2: 'sadsad',
+                                    text3: 'dsada'),
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 20),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      const HotelPrestigeDetails()));
-                            },
-                            child: resortList(
-                                image1: 'asset/images/villa2.jpg',
-                                text1: 'The Prestige',
-                                text2: 'sadsad',
-                                text3: 'dsada'),
-                          ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const HotelParadiseDetails()));
+                                },
+                                child: resortList(
+                                    image1: 'asset/images/villa3.jpg',
+                                    text1: 'Hotel Paradise',
+                                    text2: 'sadsad',
+                                    text3: 'dsada'),
+                              ),
+                            ),
+                            const SizedBox(width: 20),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const HotelLakesideDetails()));
+                                },
+                                child: resortList(
+                                    image1: 'asset/images/villa6.jpg',
+                                    text1: 'Hotel Lakeside',
+                                    text2: 'sadsad',
+                                    text3: 'dsada'),
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 20),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      const HotelParadiseDetails()));
-                            },
-                            child: resortList(
-                                image1: 'asset/images/villa3.jpg',
-                                text1: 'Hotel Paradise',
-                                text2: 'sadsad',
-                                text3: 'dsada'),
-                          ),
-                        ),
-                        const SizedBox(width: 20),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      const HotelCoastalDetails()));
-                            },
-                            child: resortList(
-                                image1: 'asset/images/villa4.jpg',
-                                text1: 'The Coastel',
-                                text2: 'sadsad',
-                                text3: 'dsada'),
-                          ),
-                        ),
-                        const SizedBox(width: 20),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      const HotelTropicalDetails()));
-                            },
-                            child: resortList(
-                                image1: 'asset/images/villa5.jpg',
-                                text1: 'The Tropical',
-                                text2: 'sadsad',
-                                text3: 'dsada'),
-                          ),
-                        ),
-                        const SizedBox(width: 20),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      const HotelLakesideDetails()));
-                            },
-                            child: resortList(
-                                image1: 'asset/images/villa6.jpg',
-                                text1: 'Hotel Lakeside',
-                                text2: 'sadsad',
-                                text3: 'dsada'),
-                          ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const HotelCoastalDetails()));
+                                },
+                                child: resortList(
+                                    image1: 'asset/images/villa4.jpg',
+                                    text1: 'The Coastel',
+                                    text2: 'sadsad',
+                                    text3: 'dsada'),
+                              ),
+                            ),
+                            const SizedBox(width: 20),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const HotelTropicalDetails()));
+                                },
+                                child: resortList(
+                                    image1: 'asset/images/villa5.jpg',
+                                    text1: 'The Tropical',
+                                    text2: 'sadsad',
+                                    text3: 'dsada'),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
@@ -169,40 +175,43 @@ class _HomeScreenState extends State<HomeScreen> {
   }) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
-      child: Stack(
-        children: [
-          Container(
-            height: 200,
-            width: 150,
-            child: Image.asset(
-              image1,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Positioned(
-            top: 150,
-            left: 40,
-            child: Container(
-              child: Column(
-                children: [
-                  Text(
-                    text1,
-                    style: const TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+      child: Container(
+        decoration: BoxDecoration(color: Colors.white),
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  height: 200,
+                  width: 150,
+                  child: Image.asset(
+                    image1,
+                    fit: BoxFit.cover,
                   ),
-                  Text(
-                    text2,
-                    style: const TextStyle(color: Colors.white),
+                ),
+                Positioned(
+                  top: 150,
+                  left: 40,
+                  child: Container(
+                    child: Column(
+                      children: [],
+                    ),
                   ),
-                  Text(
-                    text3,
-                    style: const TextStyle(color: Colors.white),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
-          )
-        ],
+            Text(
+              text1,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              text2,
+            ),
+            Text(
+              text3,
+            )
+          ],
+        ),
       ),
     );
   }
