@@ -119,95 +119,19 @@ class CustomWidget extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
             child: Row(
               children: [
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(Icons.bed,
-                          size: 30, color: Color.fromARGB(255, 128, 98, 248)),
-                      height: 60,
-                      width: 60,
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 215, 215, 215),
-                          borderRadius: BorderRadius.circular(10)),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      '2 Bed',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
+                FacilityList(icon1: Icons.bed, text1: "2 Bed"),
                 SizedBox(
                   width: 10,
                 ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(Icons.dining_rounded,
-                          size: 30, color: Color.fromARGB(255, 128, 98, 248)),
-                      height: 60,
-                      width: 60,
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 215, 215, 215),
-                          borderRadius: BorderRadius.circular(10)),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Break Fast',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
+                FacilityList(icon1: Icons.dining_rounded, text1: 'Break Fast'),
                 SizedBox(
                   width: 10,
                 ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(Icons.severe_cold_rounded,
-                          size: 30, color: Color.fromARGB(255, 128, 98, 248)),
-                      height: 60,
-                      width: 60,
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 215, 215, 215),
-                          borderRadius: BorderRadius.circular(10)),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'A/C',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
+                FacilityList(icon1: Icons.severe_cold_outlined, text1: 'A/C'),
                 SizedBox(
                   width: 10,
                 ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(Icons.pool,
-                          size: 30, color: Color.fromARGB(255, 128, 98, 248)),
-                      height: 60,
-                      width: 60,
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 215, 215, 215),
-                          borderRadius: BorderRadius.circular(10)),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Pool",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
+                FacilityList(icon1: Icons.pool, text1: 'Pool')
               ],
             ),
           ),
@@ -270,6 +194,29 @@ class CustomWidget extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Column FacilityList({required IconData icon1, required String text1}) {
+    return Column(
+      children: [
+        Container(
+          child:
+              Icon(icon1, size: 30, color: Color.fromARGB(255, 128, 98, 248)),
+          height: 60,
+          width: 60,
+          decoration: BoxDecoration(
+              color: Color.fromARGB(255, 215, 215, 215),
+              borderRadius: BorderRadius.circular(10)),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          text1,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        )
+      ],
     );
   }
 }

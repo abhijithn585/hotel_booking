@@ -163,6 +163,16 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
+        Positioned(
+            top: 80,
+            left: 20,
+            child: Text(
+              "Hi! Abhijith",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Colors.white),
+            ))
       ],
     ));
   }

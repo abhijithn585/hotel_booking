@@ -36,68 +36,45 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              const Icon(Icons.person),
-                              const SizedBox(
-                                width: 20,
-                              ),
-                              SizedBox(
-                                width: 300,
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: const Color.fromARGB(
-                                        255, 212, 212, 212),
-                                    border: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                        borderSide: BorderSide.none),
-                                    hintText: 'Username',
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                        const Text(
+                          "Let's Find Your",
+                          style: TextStyle(
+                              fontSize: 36, fontWeight: FontWeight.bold),
                         ),
+                        const Text('Sweet &',
+                            style: TextStyle(
+                                fontSize: 36, fontWeight: FontWeight.bold)),
+                        const Text('Dream Place!',
+                            style: TextStyle(
+                                fontSize: 36, fontWeight: FontWeight.bold)),
                         const SizedBox(
-                          height: 20,
+                          height: 30,
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              const Icon(Icons.key),
-                              const SizedBox(
-                                width: 20,
+                          child: SizedBox(
+                            width: 300,
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                filled: true,
+                                fillColor:
+                                    const Color.fromARGB(255, 212, 212, 212),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    borderSide: BorderSide.none),
+                                hintText: 'Username',
                               ),
-                              SizedBox(
-                                width: 300,
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: const Color.fromARGB(
-                                        255, 212, 212, 212),
-                                    border: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                        borderSide: BorderSide.none),
-                                    hintText: 'Password',
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                       ],
                     ),
                     const SizedBox(
-                      height: 100,
+                      height: 50,
                     ),
                     SizedBox(
-                      width: 280,
+                      width: 200,
+                      height: 70,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
