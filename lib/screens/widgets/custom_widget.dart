@@ -185,7 +185,13 @@ class CustomWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 10, 10),
                       child: ElevatedButton(
-                          onPressed: navigation, child: const Text('Reserve')),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color.fromARGB(255, 128, 98, 248),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                          onPressed: navigation,
+                          child: const Text('Reserve')),
                     )
                   ],
                 )

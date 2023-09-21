@@ -14,7 +14,7 @@ class _BookingScreenState extends State<BookingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 0, 76, 139),
+        backgroundColor: Color.fromARGB(255, 128, 98, 248),
       ),
       body: Stack(
         children: [
@@ -22,7 +22,7 @@ class _BookingScreenState extends State<BookingScreen> {
             height: 400,
             width: 500,
             child: Image.asset(
-              'asset/images/registrationbackground.jpg',
+              'asset/images/registrationbackground.png',
               fit: BoxFit.fill,
             ),
           ),
@@ -175,6 +175,8 @@ class _BookingScreenState extends State<BookingScreen> {
                       width: 280,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color.fromARGB(255, 128, 98, 248),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20))),
                           onPressed: () {

@@ -73,9 +73,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
       bottomNavigationBar: DotNavigationBar(
           currentIndex: _selectedIndex,
           onTap: navigateBottomBar,
+          backgroundColor: Color.fromARGB(255, 128, 98, 248),
+          dotIndicatorColor: Colors.white,
           items: [
-            DotNavigationBarItem(icon: Icon(Icons.home)),
-            DotNavigationBarItem(icon: Icon(Icons.list))
+            DotNavigationBarItem(
+              icon: Icon(Icons.home),
+              selectedColor: Colors.white,
+            ),
+            DotNavigationBarItem(
+                icon: Icon(Icons.list),
+                selectedColor: Colors.white,
+                unselectedColor: Color.fromARGB(255, 0, 0, 0))
           ]),
     );
   }

@@ -10,10 +10,12 @@ class BookingListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 128, 98, 248),
+        ),
         drawer: Drawer(
           child: Container(
-              color: Color.fromARGB(255, 225, 225, 225),
+              color: Color.fromARGB(255, 128, 98, 248),
               child: ListView(
                 children: [
                   SizedBox(
