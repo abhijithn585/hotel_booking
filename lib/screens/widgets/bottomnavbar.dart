@@ -1,7 +1,7 @@
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:resto/screens/screenBooking.dart';
-import 'package:resto/screens/screenhome.dart';
+import 'package:resto/screens/booking_screen.dart';
+import 'package:resto/screens/home_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});

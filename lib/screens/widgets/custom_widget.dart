@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:resto/screens/screenhome.dart';
+import 'package:resto/screens/home_screen.dart';
 
 class CustomWidget extends StatelessWidget {
   CustomWidget(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:resto/db/functons/db_functions.dart';
 import 'package:resto/model/data_model.dart';
-import 'package:resto/screens/screenBooking.dart';
+import 'package:resto/screens/booking_screen.dart';
 import 'package:resto/screens/widgets/bottomnavbar.dart';
 
 class BookingScreen extends StatelessWidget {
@@ -149,9 +149,10 @@ class BookingScreen extends StatelessWidget {
                                 width: 20,
                               ),
                               SizedBox(
-                                width: 300,
-                                child: TextButton(onPressed: (){}, child: Text("Select date and time "))
-                              ),
+                                  width: 300,
+                                  child: TextButton(
+                                      onPressed: () {},
+                                      child: Text("Select date and time "))),
                             ],
                           ),
                         ),

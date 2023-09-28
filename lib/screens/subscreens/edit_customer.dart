@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:resto/db/functons/db_functions.dart';
 import 'package:resto/model/data_model.dart';
-import 'package:resto/screens/screenBooking.dart';
+import 'package:resto/screens/booking_screen.dart';
 import 'package:resto/screens/widgets/bottomnavbar.dart';
 
 class EditCustomerScreen extends StatefulWidget {
