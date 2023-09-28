@@ -12,7 +12,7 @@ class RavizDetails extends StatelessWidget {
             image: 'asset/images/villa1.jpg',
             name: 'Raviz',
             description:
-                'The Raviz Resort is a luxurious and enchanting destination nestled amidst the natural beauty of its surroundings. Located in a serene and picturesque location, this resort offers a truly immersive and rejuvenating experience for its guests.',
+                'The Raviz Resort is a luxurious and enchanting destination nestled amidst the natural  experience for its guests.',
             price: '\$100/night',
             navigation: () {
               Navigator.of(context).push(MaterialPageRoute(

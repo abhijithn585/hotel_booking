@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:resto/screens/screenhome.dart';
+import 'package:resto/db/functons/db_functions.dart';
+import 'package:resto/model/data_model.dart';
+import 'package:resto/screens/screenBooking.dart';
 import 'package:resto/screens/widgets/bottomnavbar.dart';
 
-class BookingScreen extends StatefulWidget {
-  const BookingScreen({super.key});
-
-  @override
-  State<BookingScreen> createState() => _BookingScreenState();
-}
-
-class _BookingScreenState extends State<BookingScreen> {
+class BookingScreen extends StatelessWidget {
+  BookingScreen({super.key});
+  final _nameController = TextEditingController();
+  final _numberController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 128, 98, 248),
+        backgroundColor: const Color.fromARGB(255, 128, 98, 248),
       ),
       body: Stack(
         children: [
@@ -39,7 +37,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Registration",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
@@ -57,6 +55,7 @@ class _BookingScreenState extends State<BookingScreen> {
                               SizedBox(
                                 width: 300,
                                 child: TextFormField(
+                                  controller: _nameController,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor: const Color.fromARGB(
@@ -86,6 +85,7 @@ class _BookingScreenState extends State<BookingScreen> {
                               SizedBox(
                                 width: 300,
                                 child: TextFormField(
+                                  controller: _numberController,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor: const Color.fromARGB(
@@ -133,7 +133,7 @@ class _BookingScreenState extends State<BookingScreen> {
                         const SizedBox(
                           height: 20,
                         ),
-                        Text(
+                        const Text(
                           "To",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
@@ -150,18 +150,7 @@ class _BookingScreenState extends State<BookingScreen> {
                               ),
                               SizedBox(
                                 width: 300,
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: const Color.fromARGB(
-                                        255, 212, 212, 212),
-                                    border: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                        borderSide: BorderSide.none),
-                                    hintText: 'DD/MM/YYYY',
-                                  ),
-                                ),
+                                child: TextButton(onPressed: (){}, child: Text("Select date and time "))
                               ),
                             ],
                           ),
@@ -176,13 +165,11 @@ class _BookingScreenState extends State<BookingScreen> {
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor:
-                                  Color.fromARGB(255, 128, 98, 248),
+                                  const Color.fromARGB(255, 128, 98, 248),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20))),
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => BottomNavBar(),
-                            ));
+                            onAddDetailsButtonClicked(context);
                           },
                           child: const Text('Done')),
                     )
@@ -194,5 +181,18 @@ class _BookingScreenState extends State<BookingScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> onAddDetailsButtonClicked(BuildContext context) async {
+    final _name = _nameController.text.trim();
+    final _number = _numberController.text.trim();
+    if (_name.isEmpty || _number.isEmpty) {
+      return;
+    }
+    final _customer = CustomerDataModel(name: _name, number: _number);
+    addcustomer(_customer);
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => BottomNavBar(),
+    ));
   }
 }

@@ -33,7 +33,7 @@ class CustomWidget extends StatelessWidget {
                         color: Colors.black.withOpacity(0.2),
                         spreadRadius: 5,
                         blurRadius: 10,
-                        offset: Offset(0, 5),
+                        offset: const Offset(0, 5),
                       ),
                     ],
                   ),
@@ -53,18 +53,18 @@ class CustomWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(10, 15, 0, 0),
                   child: Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color.fromARGB(117, 255, 255, 255)),
                     child: IconButton(
                         onPressed: () {
                           Navigator.of(context).pop(MaterialPageRoute(
                             builder: (context) => HomeScreen(),
                           ));
                         },
-                        icon: Icon(Icons.arrow_back_ios)),
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color.fromARGB(117, 255, 255, 255)),
+                        icon: const Icon(Icons.arrow_back_ios)),
                   ),
                 ),
                 Positioned(
@@ -74,7 +74,7 @@ class CustomWidget extends StatelessWidget {
                     width: 200,
                     height: 80,
                     decoration: BoxDecoration(
-                        color: Color.fromARGB(107, 255, 255, 255),
+                        color: const Color.fromARGB(107, 255, 255, 255),
                         borderRadius: BorderRadius.circular(20)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -83,13 +83,13 @@ class CustomWidget extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(name),
-                            SizedBox(
+                            const SizedBox(
                               width: 50,
                             ),
                             Text(price)
                           ],
                         ),
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.location_on_sharp),
@@ -103,8 +103,8 @@ class CustomWidget extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(20, 20, 0, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -120,23 +120,23 @@ class CustomWidget extends StatelessWidget {
             child: Row(
               children: [
                 FacilityList(icon1: Icons.bed, text1: "2 Bed"),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 FacilityList(icon1: Icons.dining_rounded, text1: 'Break Fast'),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 FacilityList(icon1: Icons.severe_cold_outlined, text1: 'A/C'),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 FacilityList(icon1: Icons.pool, text1: 'Pool')
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(15, 30, 0, 0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -151,7 +151,7 @@ class CustomWidget extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
             child: Text(description),
           ),
-          SizedBox(
+          const SizedBox(
             height: 18,
           ),
           Container(
@@ -187,7 +187,7 @@ class CustomWidget extends StatelessWidget {
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor:
-                                  Color.fromARGB(255, 128, 98, 248),
+                                  const Color.fromARGB(255, 128, 98, 248),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20))),
                           onPressed: navigation,
@@ -207,20 +207,20 @@ class CustomWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          child:
-              Icon(icon1, size: 30, color: Color.fromARGB(255, 128, 98, 248)),
+          child: Icon(icon1,
+              size: 30, color: const Color.fromARGB(255, 128, 98, 248)),
           height: 60,
           width: 60,
           decoration: BoxDecoration(
-              color: Color.fromARGB(255, 215, 215, 215),
+              color: const Color.fromARGB(255, 215, 215, 215),
               borderRadius: BorderRadius.circular(10)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(
           text1,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         )
       ],
     );

@@ -1,20 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:resto/screens/screenhome.dart';
+import 'package:resto/db/functons/db_functions.dart';
+import 'package:resto/model/data_model.dart';
+import 'package:resto/screens/screenBooking.dart';
 import 'package:resto/screens/widgets/bottomnavbar.dart';
 
 class EditCustomerScreen extends StatefulWidget {
-  const EditCustomerScreen({super.key});
+  var name;
+  var number;
+  int index;
+
+  EditCustomerScreen(
+      {required this.index, required this.name, required this.number});
 
   @override
   State<EditCustomerScreen> createState() => _EditCustomerScreenState();
 }
 
 class _EditCustomerScreenState extends State<EditCustomerScreen> {
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _numberController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController(text: widget.name);
+    _numberController = TextEditingController(text: widget.number);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 0, 76, 139),
+        backgroundColor: const Color.fromARGB(255, 0, 76, 139),
       ),
       body: Stack(
         children: [
@@ -22,7 +39,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen> {
             height: 400,
             width: 500,
             child: Image.asset(
-              'asset/images/registrationbackground.jpg',
+              'asset/images/registrationbackground.png',
               fit: BoxFit.fill,
             ),
           ),
@@ -39,7 +56,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Registration",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
@@ -57,6 +74,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen> {
                               SizedBox(
                                 width: 300,
                                 child: TextFormField(
+                                  controller: _nameController,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor: const Color.fromARGB(
@@ -86,6 +104,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen> {
                               SizedBox(
                                 width: 300,
                                 child: TextFormField(
+                                  controller: _numberController,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor: const Color.fromARGB(
@@ -133,7 +152,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen> {
                         const SizedBox(
                           height: 20,
                         ),
-                        Text(
+                        const Text(
                           "To",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
@@ -178,9 +197,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20))),
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => BottomNavBar(),
-                            ));
+                            updateAll();
                           },
                           child: const Text('Done')),
                     )
@@ -192,5 +209,19 @@ class _EditCustomerScreenState extends State<EditCustomerScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> updateAll() async {
+    final name1 = _nameController.text.trim();
+    final number1 = _numberController.text.trim();
+
+    if (name1.isEmpty || number1.isEmpty) {
+      return;
+    }
+    final update = CustomerDataModel(name: name1, number: number1);
+    editCustomer(widget.index, update);
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => BottomNavBar(),
+    ));
   }
 }
